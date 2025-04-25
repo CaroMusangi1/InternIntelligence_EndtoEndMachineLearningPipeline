@@ -1,93 +1,85 @@
-🧠 End-to-End Machine Learning Pipeline — Titanic Dataset
-🚢 Project Overview
-This project demonstrates how to build a complete ML pipeline using the Titanic dataset. From data ingestion to model saving, this workflow shows how real-world ML systems are structured and maintained.
+```
+# 🧠 <u>END-TO-END MACHINE LEARNING PIPELINE — TITANIC DATASET</u>
 
-🔑 Key Concepts
-🔁 Pipeline: Seamlessly connects preprocessing and training steps for modular, clean code.
+## 🚢 <u>PROJECT OVERVIEW</u>
+This project demonstrates how to build a complete ML pipeline using the Titanic dataset.  
+From data ingestion to model saving, this workflow shows how real-world ML systems are structured and maintained.
 
-🧱 ColumnTransformer: Applies specific transformations to specific columns (e.g., scale age, encode gender).
 
-💾 Joblib: Saves your trained model so you can load it later—no need to retrain every time!
+## 🔑 <u>KEY CONCEPTS</u>
 
-⚙️ Workflow Steps
-📥 1. Load the Titanic Dataset
-The dataset is loaded via pandas.read_csv()
+- 🔁 **PIPELINE**: Seamlessly connects preprocessing and training steps for modular, clean code.
+- 🧱 **COLUMNTRANSFORMER**: Applies specific transformations to specific columns (e.g., scale age, encode gender).
+- 💾 **JOBLIB**: Saves your trained model so you can load it later—no need to retrain every time!
 
-It contains key features: Age, Sex, Pclass, etc.
 
-Target: Survived (0 = No, 1 = Yes)
+## ⚙️ <u>WORKFLOW STEPS</u>
 
-🧹 2. Data Cleaning & Preprocessing
-Handle missing values (e.g., age, embarked)
+### 📥 <u>1. LOAD THE TITANIC DATASET</u>
+- The dataset is loaded via `pandas.read_csv()`
+- It contains key features: **Age, Sex, Pclass**, etc.
+- **Target**: Survived (0 = No, 1 = Yes)
 
-Encode categorical variables like Sex and Embarked
 
-Scale numerical values (e.g., Age, Fare)
+### 🧹 <u>2. DATA CLEANING & PREPROCESSING</u>
+- Handle missing values (e.g., age, embarked)  
+- Encode categorical variables like **Sex** and **Embarked**  
+- Scale numerical values (e.g., **Age**, **Fare**)  
+- All preprocessing is bundled with **ColumnTransformer**
 
-All preprocessing is bundled with ColumnTransformer
 
-🔄 3. Build the ML Pipeline
-python
-Copy
-Edit
+### 🔄 <u>3. BUILD THE ML PIPELINE</u>
+```python
 Pipeline([
   ('preprocessing', ColumnTransformer([...])) ,
   ('classifier', LogisticRegression())
 ])
-Makes the entire workflow reusable and clean
+```
+- Makes the entire workflow **reusable** and **clean**  
+- Easy to **modify or extend** (swap out models or steps)
 
-Easy to modify or extend (swap out models or steps)
 
-🏋️‍♂️ 4. Train the Model
-Model: Logistic Regression
+### 🏋️‍♂️ <u>4. TRAIN THE MODEL</u>
+- **Model**: Logistic Regression  
+- **Task**: Binary Classification (Survived / Not Survived)  
+- Training on **processed features**
 
-Task: Binary Classification (Survived / Not Survived)
+### 📊 <u>5. EVALUATE PERFORMANCE</u>
+- **Metrics**: Accuracy, Precision, Recall, F1-score  
+- Optional: Visualize confusion matrix using **Seaborn**
 
-Training on processed features
-
-📊 5. Evaluate Performance
-Metrics: Accuracy, Precision, Recall, F1-score
-
-Optional: Visualize confusion matrix using Seaborn
-
-💾 6. Save the Model
+### 💾 <u>6. SAVE THE MODEL</u>
 Save your trained pipeline using:
-
-python
-Copy
-Edit
+```python
 joblib.dump(pipeline, 'titanic_model.pkl')
+```
 Later, you can load it in seconds:
-
-python
-Copy
-Edit
+```python
 model = joblib.load('titanic_model.pkl')
-🧪 Libraries Used
+```
 
-Library	Purpose
-scikit-learn	ML pipeline, model training
-pandas	Data loading & manipulation
-numpy	Numerical computations
-seaborn	Visualization (optional)
-joblib	Saving & loading model files
-🚀 How to Use This Project
-Open the notebook in Google Colab.
+## 🧪 <u>LIBRARIES USED</u>
 
-Run all cells from top to bottom.
+| **Library**     | **Purpose**                         |
+|------------------|-------------------------------------|
+| scikit-learn     | ML pipeline, model training         |
+| pandas           | Data loading & manipulation         |
+| numpy            | Numerical computations              |
+| seaborn          | Visualization (optional)           |
+| joblib           | Saving & loading model files        |
 
-Customize preprocessing or model settings if needed.
+## 🚀 <u>HOW TO USE THIS PROJECT</u>
+1. Open the notebook in **Google Colab**  
+2. Run all cells from top to bottom  
+3. Customize preprocessing or model settings if needed  
+4. Evaluate results and save the trained model for reuse
 
-Evaluate results and save the trained model for reuse.
+## 📦 <u>OUTPUT</u>
+✅ Trained ML Pipeline  
+✅ Model performance report (**F1, Precision, Accuracy**)  
+✅ Saved model file (`titanic_model.pkl`) ready for deployment or testing
 
-📦 Output
-✅ Trained ML Pipeline
-✅ Model performance report (F1, Precision, Accuracy)
-✅ Saved model file (titanic_model.pkl) ready for deployment or testing
-
-🔁 Want to Improve It?
-Swap in different classifiers (e.g., RandomForest, SVM)
-
-Tune hyperparameters with GridSearchCV
-
-Add cross-validation and error analysis
+## 🔁 <u>WANT TO IMPROVE IT?</u>
+- Swap in different classifiers (e.g., **RandomForest, SVM**)  
+- Tune hyperparameters with **GridSearchCV**  
+- Add **cross-validation** and **error analysis**
