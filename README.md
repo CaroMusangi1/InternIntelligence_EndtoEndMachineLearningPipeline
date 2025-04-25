@@ -10,7 +10,7 @@ Target variable: **Survived** (0 = No, 1 = Yes)
 
 ### DATA PREPROCESSING
 🧹 Handled missing values (e.g., Age, Embarked)  
-🔄 Encoded categorical variables (Sex, Embarked)  
+🔄 Encoded categorical variables (Gender, Embarked)  
 📏 Scaled numerical features (Age, Fare) using StandardScaler  
 🧱 Used `ColumnTransformer` to organize preprocessing
 
